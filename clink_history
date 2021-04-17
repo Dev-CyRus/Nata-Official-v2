@@ -1,0 +1,48 @@
+|CTAG_1612254756_86747437_13960_0
+git
+clear
+|it init
+ls -a
+cd .git
+|s
+cd ..
+ls
+|it status
+|it add main.js
+|it status
+|it add package.json
+cd add *
+cd status
+git add *
+|it status
+git add .gitignore
+|it add package-lock.json
+|it status
+git commit -m "first commit"
+git branch -M master
+|it remote add origin https://github.com/Dev-CyRus/DiscordBot.git
+|it push -u origin main
+|it push -u origin main
+|it remote add origin https://github.com/Dev-CyRus/DiscordBot.git
+|it push -u origin main
+echo "# DiscordBot" >> README.md
+git remote add origin https://github.com/Dev-CyRus/DiscordBot.git
+git push -u origin main
+git "Use process env instead off"
+git -m "Use process env instead off"
+|it push
+|it push
+git push
+git init
+git add main.js
+git add gitignore
+git add package.json
+git add procfile
+git add package.lock.json
+git add package-lock.json
+git add icons
+|it add config
+|it status
+git add Procfile
+git add config
+git status
