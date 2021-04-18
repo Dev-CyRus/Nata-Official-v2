@@ -33,6 +33,15 @@ client.on('ready', () => {
     }, 10000); // Runs this every 10 seconds.
 });
 
+client.on('message', message => {
+    if (message.content.startsWith(prefix + 'say')) {
+        if (message.author.bot) return;
+        const SayMessage = message.content.slice(4).trim();
+        message.channel.send("**" + SayMessage + "**")
+        message.channel.send("- " + `**${message.author}**`)
+    }
+});
+
 client.on('message' , message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -66,7 +75,7 @@ client.on('message' , message =>{
     } else if (command == 'play'){
       client.commands.get('play').execute(message, args)
     } else if (command == 'leave'){
-      client.commands.get('leave').execute(message, args);
+      client.commands.get('leave').execute(message, args)
     }
 });
 

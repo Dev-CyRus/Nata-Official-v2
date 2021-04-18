@@ -7,13 +7,14 @@ module.exports = {
         .setTitle('Rules')
         .setDescription('This is a rules embed')
         .addFields(
-            {name: 'Rule 1', value: 'Use of   @everyone/@here   tag is only for server staff.'},
-            {name: 'Rule 2', value: 'Do not tag any fellow member of the server unnecessarily.'},
-            {name: 'Rule 3', value: 'Sending any sort of NSFW explicit content is strictly prohibited.'},
-            {name: 'Rule 4', value: 'Acts of Groupism, Racism, Harassment or Hate speech against any fellow member will not be tolerated'},
-            {name: 'Rule 5', value: 'Spamming /Excessive tagging/ Vertical Chatting is strictly prohibited in the server.'},
-            {name: 'Rule 6', value: 'Avoid making your chat highlighted by use of any other fonts / capital letters'},
-            {name: 'Rule 7', value: 'Avoid any religious / political / sexual discussions that may lead to heated arguments'}
+            {name: 'Rule 1', value: ' @everyone / @here শুধু স্টাফদের ব্যাবহারের জন্য.'},
+            {name: 'Rule 2', value: ' কোনো রকমের NSFW কন্টেন্ট পাঠানো সম্পূর্ণ নিষিদ্ধ।'},
+            {name: 'Rule 3', value: 'ঘৃণামূলক কথা,গালি,অপমানজনক কথা কিংবা খারাব ব্যবহার করা নিষিদ্ধ।'},
+            {name: 'Rule 4', value: 'স্প্যাম,অতিরিক্ত mention এই সার্ভারে নিষিদ্ধ।'},
+            {name: 'Rule 5', value: 'Self Promote ছাড়া কোনো চ্যানেল এ কোনো লিংক পাঠানো যাবে না।'},
+            {name: 'Rule 6', value: 'কোনো ধরনের ধার্মিক, রাজনৈতিক বিষয় নিয়ে কথা বলা নিষিদ্ধ।'},
+            {name: 'Rule 7', value: 'কোনো রকমের পার্সোনাল বিষয় পাঠানো নিষিদ্ধ যেমন - email,password, গোপন তথ্য ইত্যাদি।'},
+          {name: 'Rule 8', value: 'কোনো রকমের নোংরা ভাষা ব্যবহার করা নিষিদ্ধ।'}
         )
 
         message.channel.send(newEmbed);
