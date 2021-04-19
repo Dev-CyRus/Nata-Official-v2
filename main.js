@@ -33,12 +33,13 @@ client.on('ready', () => {
     }, 10000); // Runs this every 10 seconds.
 });
 
+
 client.on('message', message => {
     if (message.content.startsWith(prefix + 'say')) {
         if (message.author.bot) return;
         const SayMessage = message.content.slice(4).trim();
-        message.channel.send("**" + SayMessage + "**")
-        message.channel.send("- " + `**${message.author}**`)
+       message.channel.send("**" + SayMessage + "**")
+      message.delete()
     }
 });
 
