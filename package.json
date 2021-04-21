@@ -9,12 +9,13 @@
   "author": "Cyrus",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.4.0",
+    "@discordjs/opus": "^0.5.0",
     "discord.js": "^12.5.2",
-    "distube": "^2.8.8",
+    "distube": "^2.8.12",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.3.0",
-    "yt-search": "^2.7.6",
+    "latest-version": "^5.1.0",
+    "yt-search": "^2.7.7",
     "ytdl-core": "^4.5.0"
   },
   "repository": {
