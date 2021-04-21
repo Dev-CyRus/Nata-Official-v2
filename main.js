@@ -74,7 +74,9 @@ client.on('message' , message =>{
     } else if (command == 'pubgid'){
         client.commands.get('pubgid').execute(message, args)
     } else if (command == 'play'){
-      client.commands.get('play').execute(message, args, client, Discord)
+      client.commands.get('play').execute(message, args)
+    } else if (command == 'leave'){
+      client.commands.get('leave').execute(message, args)
     }
 });
 
