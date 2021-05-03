@@ -33,6 +33,14 @@ client.on('ready', () => {
     }, 10000); // Runs this every 10 seconds.
 });
 
+client.on('message', msg => {
+  if (msg.guild && msg.content.startsWith('/private')) {
+    let text = msg.content.slice('/private'.length); // cuts off the /private part
+    msg.guild.members.cache.forEach(member => {
+      if (member.id != client.user.id && !member.user.bot) member.send(text);
+    });
+  }
+});
 
 client.on('message', message => {
     if (message.content.startsWith(prefix + 'say')) {
@@ -77,6 +85,8 @@ client.on('message' , message =>{
       client.commands.get('play').execute(message, args)
     } else if (command == 'leave'){
       client.commands.get('leave').execute(message, args)
+    } else if (command == 'hello'){
+      client.commands.get('hello').execute(message, args)
     }
 });
 
