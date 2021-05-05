@@ -20,10 +20,10 @@ client.once('ready', () =>{
 });
 
 const activities_list = [
-    "Some javascript", 
+    "Looking players for LMS", 
     "FB - Nata Gaming",
-    "Getting developed by CyRus", 
-    "Use #play to play music"
+    "No Requirement", 
+    "DM @LMS乛CyRus if you want to join"
     ]; // creates an arraylist containing phrases you want your bot to switch through.
 
 client.on('ready', () => {
