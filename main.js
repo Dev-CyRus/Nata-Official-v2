@@ -48,13 +48,8 @@ sʜᴏᴡ ʏᴏᴜʀ ʟᴏᴠᴇ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ ʙʏ ғᴏʟʟᴏ�
 Thank You and Have a Great Time! <a:flower:839762104383045653>`);
 });
 
-client.on('message', msg => {
-  if (msg.guild && msg.content.startsWith('/private')) {
-    let text = msg.content.slice('/private'.length); // cuts off the /private part
-    msg.guild.members.cache.forEach(member => {
-      if (member.id != client.user.id && !member.user.bot) member.send(text);
-    });
-  }
+client.on('guildMemberRemove', guildMember =>{
+    guildMember.guild.channels.cache.get('726916955650392176').send(`${guildMember.user.tag} আমাদের সার্ভার থেকে পালাইছে। তার জন্যে ১ মিনিটের নিরবতা!<a:pepe:838367553478066196>`)
 });
 
 client.on('message', message => {
