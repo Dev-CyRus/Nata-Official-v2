@@ -119,16 +119,6 @@ client.on('guildMemberRemove', guildMember =>{
 });
 
 
-
-client.on('message', message => {
-    if (message.content.startsWith(prefix + 'say')) {
-        if (message.author.bot) return;
-        const SayMessage = message.content.slice(4).trim();
-       message.channel.send("**" + SayMessage + "**")
-      message.delete()
-    }
-});
-
 client.on('message' , message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
