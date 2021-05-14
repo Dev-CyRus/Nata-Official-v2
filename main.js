@@ -119,6 +119,15 @@ client.on('guildMemberRemove', guildMember =>{
 });
 
 
+client.on('message', message => {
+    if (message.content.startsWith(prefix + 'say')) {
+        if (message.author.bot) return;
+        const SayMessage = message.content.slice(4).trim();
+        message.channel.send("**" + SayMessage + "**")
+      message.delete()
+    }
+});
+
 client.on('message' , message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -151,6 +160,8 @@ client.on('message' , message =>{
         client.commands.get('pubgid').execute(message, args)
     } else if (command == 'hello'){
       client.commands.get('hello').execute(message, args)
+    } else if (command == 'kick'){
+      client.commands.get('kick').execute(message, args)
     }
 });
 
