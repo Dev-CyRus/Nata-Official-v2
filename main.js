@@ -96,7 +96,7 @@ client.on('ready', () => {
     setInterval(() => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); // generates a random number between 1 and the length of the activities array list (in this case 5).
         client.user.setActivity(activities_list[index]); // sets bot's activities to one of the phrases in the arraylist.
-    }, 10000); // Runs this every 10 seconds.
+    }, 1000); // Runs this every 10 seconds.
 });
 
 client.on('guildMemberAdd', member => {
@@ -126,6 +126,24 @@ client.on('message', message => {
         message.channel.send("**" + SayMessage + "**")
       message.delete()
     }
+});
+
+client.on("message", async message =>{
+let command = message.content.toLowerCase().split(" ")[0]
+command = command.slice(prefix.length)
+if(message.content.startsWith(prefix + "avatar")){
+let args = message.content.split(" ")
+let user = message.mentions.users.first() || message.author || message.guild.member.cache.get(args[1])
+message.channel.send( new Discord.MessageEmbed()
+.setAuthor(user.username,user.avatarURL())
+.setDescription(`**[Avatar Link](${user.avatarURL()})**`)
+.setImage(user.avatarURL(
+{dynamic : true,
+format : 'png',
+size : 1024}
+))
+);
+}
 });
 
 client.on('message' , message =>{
@@ -159,9 +177,13 @@ client.on('message' , message =>{
     } else if (command == 'pubgid'){
         client.commands.get('pubgid').execute(message, args)
     } else if (command == 'hello'){
-      client.commands.get('hello').execute(message, args)
+      client.commands.get('hello').execute(message, args, client, Discord)
     } else if (command == 'kick'){
       client.commands.get('kick').execute(message, args)
+    } else if (command == 'help'){
+      client.commands.get('help').execute(message, args, Discord)
+    } else if (command == 'ban'){
+      client.commands.get('ban').execute(message, args)
     }
 });
 
