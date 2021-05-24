@@ -24,11 +24,12 @@ client.once('ready', () =>{
 const activities_list = [
     "Looking players for LMS", 
     "FB - Nata Gaming",
-    "No Requirement", 
-    "DM @LMS乛CyRus if you want to join"
+    "The prefix is #", 
+    "Looking for clan members"
     ]; // creates an arraylist containing phrases you want your bot to switch through.
 
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
+
 
 client.on("message", async (message) => {
     if (message.author.bot) return;
@@ -132,6 +133,24 @@ client.on("message", async message =>{
 let command = message.content.toLowerCase().split(" ")[0]
 command = command.slice(prefix.length)
 if(message.content.startsWith(prefix + "avatar")){
+let args = message.content.split(" ")
+let user = message.mentions.users.first() || message.author || message.guild.member.cache.get(args[1])
+message.channel.send( new Discord.MessageEmbed()
+.setAuthor(user.username,user.avatarURL())
+.setDescription(`**[Avatar Link](${user.avatarURL()})**`)
+.setImage(user.avatarURL(
+{dynamic : true,
+format : 'png',
+size : 1024}
+))
+);
+}
+});
+
+client.on("message", async message =>{
+let command = message.content.toLowerCase().split(" ")[0]
+command = command.slice(prefix.length)
+if(message.content.startsWith(prefix + "av")){
 let args = message.content.split(" ")
 let user = message.mentions.users.first() || message.author || message.guild.member.cache.get(args[1])
 message.channel.send( new Discord.MessageEmbed()

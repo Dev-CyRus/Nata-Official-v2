@@ -4,6 +4,7 @@ dependencies:
   distube: 2.8.13
   ffmpeg: 0.0.4
   ffmpeg-static: 4.3.0
+  fs: 0.0.1-security
   latest-version: 5.1.0
   yt-search: 2.8.0
   ytdl-core: 4.8.0
@@ -699,6 +700,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+  /fs/0.0.1-security:
+    dev: false
+    resolution:
+      integrity: sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
   /gauge/2.7.4:
     dependencies:
       aproba: 1.2.0
@@ -1623,6 +1628,7 @@ specifiers:
   distube: ^2.8.13
   ffmpeg: 0.0.4
   ffmpeg-static: ^4.3.0
+  fs: 0.0.1-security
   latest-version: ^5.1.0
   yt-search: ^2.8.0
   ytdl-core: ^4.8.0
