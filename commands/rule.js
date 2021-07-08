@@ -1,9 +1,9 @@
 module.exports = {
     name: 'rule',
     description: "Sends all command list of poison as embed",
-    execute(message, args, Discord) {
+    execute(client, message, args, Discord) {
         const newEmbed = new Discord.MessageEmbed()
-        .setColor('#1E90FF')
+        .setColor('#ff0000')
         .setTitle('Rules')
         .setDescription('This is a rules embed')
         .addFields(

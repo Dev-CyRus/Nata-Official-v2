@@ -1,7 +1,7 @@
 module.exports = {
     name: 'pubgid',
-    description: "Sends the PUBG id of Cyrus",
-    execute(message, args){
-        message.channel.send('> <a:arrow:783926999302799411> IGN:『NM』 CyRus , Player ID:5104911542');
+    description: "Sends PUBG id of CyRus",
+    execute(client, message, args){
+        message.channel.send('<a:arrow2:839762125181419520> 5104911542');
     }
-};
+}
