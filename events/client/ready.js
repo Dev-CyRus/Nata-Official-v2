@@ -3,7 +3,7 @@ module.exports = (Discord, client) =>{
   client.user.setPresence({
         status: "dnd",
         activity: {
-            name: `${client.users.cache.size} Members | #help | FB: Nata Gaming` ,
+            name: `${client.users.cache.size} Members | #HELP | FB: Nata Gaming` ,
             type: "LISTENING"
         }
     });

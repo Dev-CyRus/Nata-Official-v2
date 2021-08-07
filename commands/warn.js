@@ -1,40 +1,54 @@
 const db = require('quick.db');
 
 module.exports = {
-    name: "warn",
-    description: "Warn a member",
-    permissions: ["MANAGE_GUILD"],
+  name: "warn",
+  description: "Warn a member",
+  permissions: ["MANAGE_GUILD"],
 
-    async execute(client, message, args, Discord) {
-          const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
+  async execute(client, message, args, Discord) {
 
-        if(!user) return message.channel.send('Please specify a user, via mention or ID');
+    if (message.member.hasPermission("MANAGE_GUILD")) {
+      const user = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
 
-        if(user.bot) return message.channel.send('You can\'t warn bots');
+      if (!user) return message.channel.send('Please specify a user, via mention or ID');
 
-        if(message.author.id === user.id) return message.channel.send('You can\'t warn yourself nitwit');
+      if (user.bot) return message.channel.send('You can\'t warn bots');
 
-        if(message.guild.owner.id === user.id) return message.channel.send('You can\'t warn the server\'s owner');
+      if (message.author.id === user.id) return message.channel.send('You can\'t warn yourself');
 
-        let reason = args.slice(1).join(" ");
+      if (message.guild.owner.id === user.id) return message.channel.send('You can\'t warn the server\'s owner');
 
-        if(!reason) reason = 'Unspecified';
+      let reason = args.slice(1).join(" ");
 
-        let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
+      if (!reason) reason = 'Unspecified';
 
-        if(warnings === 20) return message.channel.send(`${user} has already reached three warnings`);
+      let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
 
+      if (warnings === 20) return message.channel.send(`${user} has already reached three warnings`);
 
-        if(warnings === null) {
-            db.set(`warnings_${message.guild.id}_${user.id}`, 1);
-            user.send(`You were warned in ${message.guild.name} for the follwoing reason: \`${reason}\``)
-            await message.channel.send(`**${user.username}** has been warned`)
-        }
+      const exampleEmbed = new Discord.MessageEmbed()
+      .setColor('#f70000')
+      .setTitle('**You got warned in `Nata Family` by a staff.**')
+      .setAuthor('You got warned!', 'https://media.discordapp.net/attachments/789770879508414467/873471826758610944/817506535591772250.gif')
+      .addFields(
+            {name: 'Rason:', value: `\`${reason}\``}
+      )
+      .setTimestamp()
+      .setFooter(`Nata's Family`, `${message.guild.iconURL()}`)
 
-        if(warnings !== null){
-            db.add(`warnings_${message.guild.id}_${user.id}`, 1)
-            user.send(`You were warned in ${message.guild.name} for the follwoing reason: \`${reason}\``)
-            await message.channel.send(`**${user.username}** has been warned`)
-        }
+      if (warnings === null) {
+        db.set(`warnings_${message.guild.id}_${user.id}`, 1);
+        user.send(exampleEmbed)
+        await message.channel.send(`**${user.username}** has been warned`)
+      }
+
+      if (warnings !== null) {
+        db.add(`warnings_${message.guild.id}_${user.id}`, 1)
+        user.send(exampleEmbed)
+        await message.channel.send(`**${user.username}** has been warned`)
+      }
+    } else {
+      message.reply("You don't have permission to warn")
     }
+  }
 }

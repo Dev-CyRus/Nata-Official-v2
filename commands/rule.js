@@ -1,11 +1,16 @@
 module.exports = {
     name: 'rule',
-    description: "Sends all command list of poison as embed",
+    aliases: ["rules"],
+    description: "Sends server rules",
     execute(client, message, args, Discord) {
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#ff0000')
-        .setTitle('Rules')
-        .setDescription('This is a rules embed')
+        .setTitle('Rules Channel')
+        .setDescription('This are the rules of the server')
+        .setURL('https://discord.com/channels/726911554959966299/726916751094317097/832284596715782174')
+        .setAuthor('Thise are the rules', 'https://i.imgur.com/cX9LdKV.png')
+        .setThumbnail('https://i.imgur.com/cX9LdKV.png')
+        .setImage('https://i.imgur.com/cX9LdKV.png')
         .addFields(
             {name: 'Rule 1', value: ' @everyone / @here শুধু স্টাফদের ব্যাবহারের জন্য.'},
             {name: 'Rule 2', value: ' কোনো রকমের NSFW কন্টেন্ট পাঠানো সম্পূর্ণ নিষিদ্ধ।'},
@@ -16,6 +21,7 @@ module.exports = {
             {name: 'Rule 7', value: 'কোনো রকমের পার্সোনাল বিষয় পাঠানো নিষিদ্ধ যেমন - email,password, গোপন তথ্য ইত্যাদি।'},
           {name: 'Rule 8', value: 'কোনো রকমের নোংরা ভাষা ব্যবহার করা নিষিদ্ধ।'}
         )
+        .setFooter(`Nata's Family`, `${message.guild.iconURL()}`);
 
         message.channel.send(newEmbed);
             

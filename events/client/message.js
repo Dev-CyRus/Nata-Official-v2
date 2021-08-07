@@ -7,6 +7,8 @@ module.exports = (Discord, client, message) => {
 
   const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd));
 
+  if(message.channel.type === "dm") return;
+
     const validPermissions = [
     "CREATE_INSTANT_INVITE",
     "KICK_MEMBERS",
